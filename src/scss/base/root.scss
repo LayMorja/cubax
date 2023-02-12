@@ -1,0 +1,23 @@
+// Подключение общих CSS-переменных
+:root {
+	--clr-white: #fff;
+	--clr-black: #000;
+	--clr-blue-primary: #63afcd;
+	--clr-black-secondary: #828282;
+	--clr-accent: #ff374f;
+	--clr-blue-static: #edf4f4;
+
+	--header-height: 7.1875rem;
+}
+
+@media (max-width: 61.99875em) {
+	:root {
+		--header-height: 5.625rem;
+	}
+}
+
+@media (max-width: 39.999375em) {
+	:root {
+		--header-height: 5rem;
+	}
+}

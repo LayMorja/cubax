@@ -1,0 +1,15 @@
+.logo {
+	svg {
+		width: rem(185);
+		height: rem(46);
+		object-fit: contain;
+		@media (max-width: $notebook) {
+			width: rem(160);
+			height: rem(40);
+		}
+		@media (max-width: $mobileNormal) {
+			width: rem(156);
+			height: rem(39);
+		}
+	}
+}

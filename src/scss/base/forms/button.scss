@@ -1,0 +1,31 @@
+//<BUTTONS (a.btn+tab)>
+// Снипет (HTML): btn
+
+.cta {
+	display: inline-flex;
+	padding: rem(22) rem(38);
+	justify-content: center;
+	align-items: center;
+	border-radius: em(35);
+	background: var(--clr-accent);
+	border: 1px solid transparent;
+	transition: background-color 0.32s ease-in-out, border-color 0.32s ease-in-out;
+
+	span {
+		font-weight: 700;
+		line-height: 1.5;
+		text-align: center;
+		letter-spacing: 0.04em;
+		color: var(--clr-white);
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: transparent;
+			border-color: var(--clr-accent);
+		}
+	}
+	&._fw {
+		width: 100%;
+	}
+}

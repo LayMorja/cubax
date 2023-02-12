@@ -1,0 +1,193 @@
+.hero {
+	@extend %fl-c;
+	align-items: center;
+	padding-bottom: rem(55);
+	@media (min-height: em(1080)) {
+		margin-bottom: rem(75);
+	}
+
+	&__container.container--xl {
+		width: 100%;
+	}
+
+	&__container:not(.container--xl) {
+		position: relative;
+		@extend %fl-c;
+		align-items: center;
+		// height: 100%;
+		flex: 1 1 auto;
+		&:not(:last-child) {
+			margin-bottom: rem(35);
+			@media (min-height: em(1080)) {
+				margin-bottom: rem(55);
+			}
+			@media (max-width: $mobileSmall) {
+				margin-bottom: rem(85);
+			}
+		}
+	}
+
+	&__houses {
+		width: 100%;
+		flex: 1 1 auto;
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		@media (max-width: $notebook) {
+			padding-bottom: 20%;
+		}
+		@media (max-width: $tablet) {
+			padding-bottom: 30%;
+		}
+		@media (max-width: $mobileSmall) {
+			padding-bottom: 80%;
+		}
+	}
+
+	&__house {
+		position: absolute;
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: 4;
+			@extend %bg-con;
+		}
+		&--1 {
+			left: rem(math.div(-373, 7));
+			top: rem(math.div(-269, 20));
+			width: rem(373);
+			height: rem(269);
+			&::after {
+				top: rem(180);
+				left: 0;
+				width: rem(447);
+				height: rem(224);
+				background-image: url('@temp/hero/clouds_1.png');
+			}
+			@media (max-width: em(1079.98)) {
+				left: -8%;
+				top: -15%;
+			}
+			@media (max-width: $tablet) {
+				display: none;
+			}
+		}
+		&--2 {
+			z-index: 3;
+			top: 50%;
+			left: 50%;
+			width: rem(752);
+			height: rem(542);
+			transform: translate(-50%, -40%);
+			&::after {
+				top: rem(370);
+				left: 50%;
+				width: rem(1257);
+				height: rem(326);
+				background-image: url('@temp/hero/clouds_2.png');
+				transform: translateX(-50%);
+			}
+			@media (max-width: $tablet) {
+				width: rem(555);
+				height: rem(400);
+				&::after {
+					width: rem(871);
+					height: rem(226.33);
+					top: rem(240);
+				}
+			}
+			@media (max-width: $mobileSmall) {
+				width: rem(381.0851745605469);
+				height: rem(274.6651306152344);
+				&::after {
+					width: rem(637);
+					height: rem(165);
+					top: rem(180);
+				}
+			}
+		}
+		&--3 {
+			right: rem(math.div(-726, 2));
+			bottom: rem(math.div(-523, 2.5));
+			width: rem(680);
+			height: rem(490);
+			&::after {
+				top: 60%;
+				right: 12%;
+				width: rem(510);
+				height: rem(192);
+				background-image: url('@temp/hero/clouds_3.png');
+			}
+			@media (max-width: em(1079.98)) {
+				right: rem(math.div(-726, 1.8));
+				bottom: rem(math.div(-523, 2));
+			}
+			@media (max-width: $tablet) {
+				display: none;
+			}
+		}
+	}
+
+	&__house img {
+		width: 100%;
+		object-fit: cover;
+	}
+
+	&__title.title {
+		position: relative;
+		z-index: 5;
+		text-align: center;
+		max-width: rem(1200);
+		margin-bottom: auto;
+		@media (max-width: $mobileSmall) {
+			font-size: rem(22);
+		}
+		@media (max-width: $mobileMini) {
+			font-size: rem(20);
+		}
+	}
+	&__button {
+		position: relative;
+		z-index: 5;
+		display: flex;
+	}
+	&__benefits {
+		position: relative;
+		z-index: 5;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		.benefits-row__item {
+			margin-bottom: rem(20);
+			flex: 1 1 13%;
+			max-width: rem(263);
+			&:not(:last-child) {
+				margin-right: 1.5%;
+			}
+			@media (max-width: $notebook) {
+				flex: 0 0 rem(260);
+				width: rem(260);
+			}
+			@media (max-width: $mobileNormal) {
+				width: auto;
+				max-width: 100%;
+				flex: 1 1 49%;
+				&:not(:last-child) {
+					margin-right: 0;
+				}
+				&:not(:nth-child(2n)) {
+					margin-right: 2%;
+				}
+			}
+			@media (max-width: $mobileMini) {
+				flex: 1 1 auto;
+				width: 100%;
+				&:not(:nth-child(2n)) {
+					margin-right: 0;
+				}
+			}
+		}
+		@media (max-width: $mobileNormal) {
+		}
+	}
+}
