@@ -1,0 +1,73 @@
+.card-tech {
+	padding: rem(60) rem(53) rem(40) rem(58);
+	border-radius: rem(30);
+	transition: background-color 0.32s ease-in-out;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: rgba(73, 93, 124, 0.1);
+		}
+	}
+
+	&__title {
+		font-weight: 600;
+		font-size: rem(42);
+		line-height: 0.81;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--clr-blue-primary);
+	}
+
+	&__subtitle {
+		font-weight: 300;
+		font-size: rem(26);
+		line-height: 1.31;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+	}
+
+	&__image-ibg {
+		@extend %ibg;
+		padding-bottom: percent(467, 648);
+	}
+
+	&__activities {
+		margin-top: rem(-40);
+		@extend %fl-r-ct;
+	}
+
+	&__benefits {
+		flex: 1 1 auto;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__benefits-item {
+		@extend %fl-r-ct;
+		white-space: nowrap;
+		flex-wrap: nowrap;
+		margin-bottom: rem(20);
+		&:not(:nth-child(2n)) {
+			margin-right: rem(30);
+		}
+	}
+
+	&__benefits-icon {
+		display: block;
+		width: rem(30);
+		height: rem(30);
+		object-fit: contain;
+		margin-right: rem(30);
+	}
+
+	&__benefits-description {
+		font-weight: 500;
+		line-height: 1.69;
+		letter-spacing: 0.04em;
+	}
+
+	&__link {
+		position: relative;
+		z-index: 3;
+		margin-left: rem(24);
+	}
+}

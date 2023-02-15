@@ -32,9 +32,15 @@
 		@extend %fl-c;
 		justify-content: center;
 		padding: rem(25) 0;
-		transition: transform 0.32s ease-in-out;
+		transition: all 0.32s ease-in-out;
 		._header-scroll & {
 			transform: translateY(-100%);
+			padding: rem(15) 0;
+			min-height: calc(var(--header-height) - rem(20));
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+		.header.header--light._header-scroll & {
+			background-color: rgba(0, 0, 0, 0.1);
 		}
 		._header-scroll._header-show & {
 			transform: translateY(0);

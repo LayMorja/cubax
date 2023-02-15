@@ -14,7 +14,6 @@
 		position: relative;
 		@extend %fl-c;
 		align-items: center;
-		// height: 100%;
 		flex: 1 1 auto;
 		&:not(:last-child) {
 			margin-bottom: rem(35);
@@ -51,6 +50,7 @@
 			position: absolute;
 			z-index: 4;
 			@extend %bg-con;
+			animation: pulse 5s ease-in infinite;
 		}
 		&--1 {
 			left: rem(math.div(-373, 7));
@@ -63,6 +63,9 @@
 				width: rem(447);
 				height: rem(224);
 				background-image: url('@temp/hero/clouds_1.png');
+			}
+			@media (min-width: $tablet) {
+				animation: shakeY-2 20s ease-in-out infinite alternate;
 			}
 			@media (max-width: em(1079.98)) {
 				left: -8%;
@@ -78,7 +81,6 @@
 			left: 50%;
 			width: rem(752);
 			height: rem(542);
-			transform: translate(-50%, -40%);
 			&::after {
 				top: rem(370);
 				left: 50%;
@@ -86,7 +88,9 @@
 				height: rem(326);
 				background-image: url('@temp/hero/clouds_2.png');
 				transform: translateX(-50%);
+				animation-name: pulse-2;
 			}
+			animation: shakeY-3 20s ease-in-out infinite alternate;
 			@media (max-width: $tablet) {
 				width: rem(555);
 				height: rem(400);
@@ -118,6 +122,9 @@
 				height: rem(192);
 				background-image: url('@temp/hero/clouds_3.png');
 			}
+			@media (min-width: $tablet) {
+				animation: shakeY-2 20s ease-in-out infinite alternate;
+			}
 			@media (max-width: em(1079.98)) {
 				right: rem(math.div(-726, 1.8));
 				bottom: rem(math.div(-523, 2));
@@ -137,7 +144,7 @@
 		position: relative;
 		z-index: 5;
 		text-align: center;
-		max-width: rem(1200);
+		max-width: rem(1100);
 		margin-bottom: auto;
 		@media (max-width: $mobileSmall) {
 			font-size: rem(22);
@@ -186,8 +193,6 @@
 					margin-right: 0;
 				}
 			}
-		}
-		@media (max-width: $mobileNormal) {
 		}
 	}
 }

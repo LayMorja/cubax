@@ -25,6 +25,17 @@
 			border-color: var(--clr-accent);
 		}
 	}
+
+	&--reverse {
+		background-color: transparent;
+		border-color: var(--clr-accent);
+		@media (any-hover: hover) {
+			&:hover {
+				background: var(--clr-accent);
+			}
+		}
+	}
+
 	&._fw {
 		width: 100%;
 	}

@@ -157,7 +157,7 @@ import * as flsForms from './files/forms/forms.js';
 
 // Наблюдатель за объектами c атрибутом data-watch
 // Документация по работе в шаблоне: js/libs/watcher.js
-// import './libs/watcher.js'
+// import './libs/watcher.js';
 
 /*
 Анимации при прокрутке
