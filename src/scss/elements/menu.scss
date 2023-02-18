@@ -91,6 +91,7 @@
 		}
 	}
 	&__call {
+		color: var(--clr-black);
 		display: none;
 		@media (max-width: $tablet) {
 			display: flex;

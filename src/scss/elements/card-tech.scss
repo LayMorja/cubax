@@ -1,38 +1,131 @@
 .card-tech {
+	position: relative;
+	display: flex;
+	flex-direction: column;
 	padding: rem(60) rem(53) rem(40) rem(58);
 	border-radius: rem(30);
-	transition: background-color 0.32s ease-in-out;
+	transition: background-color 0.32s ease-in-out, background 0.32s ease-in-out;
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: -2px;
+		bottom: -2px;
+		left: -2px;
+		right: -2px;
+		background: linear-gradient(
+			229.98deg,
+			#63afcd 0.98%,
+			rgba(99, 175, 205, 0.04) 35.78%,
+			rgba(99, 175, 205, 0) 64.03%,
+			#63afcd 97.83%
+		);
+		border-radius: rem(30);
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: all 0.32s ease-in-out 0.1s;
+	}
+	&::before {
+		content: '';
+		position: absolute;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		border-radius: 30px;
+		@extend %bg-con;
+		background: linear-gradient(199.52deg, #161b22 9.98%, #202e43 70.51%, #0d1725 88.6%);
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.32s ease-in-out;
+	}
 	@media (any-hover: hover) {
 		&:hover {
-			background-color: rgba(73, 93, 124, 0.1);
+			&::after,
+			&::before {
+				opacity: 1;
+				visibility: visible;
+			}
 		}
+	}
+	@media (max-width: $notebook) {
+		padding: rem(40) rem(33) rem(30) rem(38);
+	}
+	@media (max-width: $mobileMedium) {
+		padding: rem(30) rem(10);
 	}
 
 	&__title {
+		position: relative;
+		z-index: 2;
 		font-weight: 600;
 		font-size: rem(42);
 		line-height: 0.81;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
 		color: var(--clr-blue-primary);
+		&:not(:last-child) {
+			margin-bottom: rem(15);
+		}
+		@media (max-width: $notebook) {
+			font-size: rem(36);
+		}
+		@media (max-width: em(1079.98)) {
+			font-size: rem(32);
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(28);
+		}
+		@media (max-width: $mobileMedium) {
+			font-size: rem(26);
+		}
 	}
 
 	&__subtitle {
+		position: relative;
+		z-index: 2;
 		font-weight: 300;
 		font-size: rem(26);
 		line-height: 1.31;
 		letter-spacing: 0.04em;
 		text-transform: uppercase;
+		@media (max-width: $notebook) {
+			font-size: rem(24);
+		}
+		@media (max-width: em(1079.98)) {
+			font-size: rem(22);
+		}
+		@media (max-width: $mobile) {
+			font-size: rem(20);
+		}
+		@media (max-width: $mobileMedium) {
+			font-size: rem(18);
+		}
+		@media (max-width: $mobileSmall) {
+			font-size: rem(16);
+		}
 	}
 
 	&__image-ibg {
 		@extend %ibg;
 		padding-bottom: percent(467, 648);
+		margin-bottom: auto;
 	}
 
 	&__activities {
+		position: relative;
+		z-index: 2;
 		margin-top: rem(-40);
 		@extend %fl-r-ct;
+		@media (max-width: $notebook) {
+			margin-top: rem(-20);
+		}
+		@media (max-width: $mobileMedium) {
+			margin-top: 0;
+			flex-direction: column;
+		}
 	}
 
 	&__benefits {
@@ -49,6 +142,23 @@
 		&:not(:nth-child(2n)) {
 			margin-right: rem(30);
 		}
+		@media (max-width: $tablet) {
+			&:not(:nth-child(2n)) {
+				margin-right: 0;
+			}
+			&:not(:last-child) {
+				margin-right: rem(30);
+			}
+		}
+		@media (max-width: $mobileMedium) {
+			flex: 1 1 49%;
+			&:not(:last-child) {
+				margin-right: 0;
+			}
+			&:not(:nth-child(2n)) {
+				margin-right: 2%;
+			}
+		}
 	}
 
 	&__benefits-icon {
@@ -57,17 +167,53 @@
 		height: rem(30);
 		object-fit: contain;
 		margin-right: rem(30);
+		@media (max-width: em(1079.98)) {
+			margin-right: rem(20);
+		}
+		@media (max-width: $mobileNormal) {
+			width: rem(24);
+			height: rem(24);
+		}
+		@media (max-width: $mobileSmall) {
+			width: rem(16);
+			height: rem(16);
+		}
 	}
 
 	&__benefits-description {
 		font-weight: 500;
 		line-height: 1.69;
 		letter-spacing: 0.04em;
+		@media (max-width: em(1079.98)) {
+			font-size: rem(14);
+		}
+		@media (max-width: $tablet) {
+			font-size: rem(16);
+		}
+		@media (max-width: $mobileMedium) {
+			font-size: rem(14);
+		}
+		@media (max-width: $mobileSmall) {
+			font-size: rem(12);
+		}
 	}
 
 	&__link {
 		position: relative;
 		z-index: 3;
 		margin-left: rem(24);
+		@media (max-width: em(1079.98)) {
+			font-size: rem(14);
+		}
+		@media (max-width: $tablet) {
+			font-size: rem(16);
+			margin-left: 0;
+		}
+		@media (max-width: $mobileSmall) {
+			margin-top: rem(10);
+			align-self: flex-start;
+			font-size: rem(14);
+			padding: rem(15) rem(45);
+		}
 	}
 }

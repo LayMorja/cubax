@@ -1,7 +1,7 @@
 .tech {
 	position: relative;
 	background: linear-gradient(199.52deg, #161b22 9.98%, #202e43 70.51%, #0d1725 88.6%);
-	padding-bottom: rem(75);
+	padding-bottom: rem(45);
 	@media (min-height: em(1079.98)) {
 		padding-bottom: rem(95);
 	}
@@ -24,24 +24,24 @@
 
 	&__title {
 		text-align: center;
-		margin-bottom: auto;
+		&:not(:last-child) {
+			margin-bottom: em(40, 42);
+		}
 	}
 
 	&__body {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: rem(30);
+		@media (max-width: $tablet) {
+			grid-template-columns: 1fr;
+		}
 	}
 
-	&__card {
-	}
-
-	&__benefits-item {
-	}
-
-	&__benefits-icon {
-	}
-
-	&__benefits-description {
+	&__card:last-child {
+		.card-tech__image-ibg {
+			margin-top: rem(40);
+			padding-bottom: percent(363, 578);
+		}
 	}
 }

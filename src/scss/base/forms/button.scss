@@ -9,10 +9,11 @@
 	border-radius: em(35);
 	background: var(--clr-accent);
 	border: 1px solid transparent;
-	transition: background-color 0.32s ease-in-out, border-color 0.32s ease-in-out;
+	transition: background-color 0.32s ease-in-out, border-color 0.32s ease-in-out,
+		color 0.32s ease-in-out;
 
 	span {
-		font-weight: 700;
+		font-weight: 600;
 		line-height: 1.5;
 		text-align: center;
 		letter-spacing: 0.04em;

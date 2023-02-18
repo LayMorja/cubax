@@ -126,10 +126,12 @@ body {
 @import 'elements/call';
 @import 'elements/benefits-row';
 @import 'elements/card-tech';
+@import 'elements/return';
 
 // Подключение крупных блоков
 @import 'blocks/hero';
 @import 'blocks/tech';
+@import 'blocks/callback';
 
 // Подключение стилей общих элементов проекта
 @import 'common';
