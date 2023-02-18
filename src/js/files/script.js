@@ -5,32 +5,34 @@
 
 const header = document.querySelector('header.header');
 const headerHeight =
-	(-parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) *
-		16) /
+	(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) * 16) /
 	2;
-const sections = document.querySelectorAll('section._dark');
+const sections = Array.from(document.querySelectorAll('section._dark')).map(item => [
+	item.offsetTop,
+	item.offsetTop + item.offsetHeight,
+]);
 
-const config = {
-	root: null,
-	rootMargin: `${headerHeight}px 0px 0px 0px`,
-	threshold: 0.9,
-};
-
-let observer = new IntersectionObserver(function (entries) {
-	entries.forEach(entry => {
-		observerCallback(entry);
-	});
-}, config);
-console.log(observer);
-
-function observerCallback(entry) {
-	if (entry.isIntersecting) {
-		header.classList.add('header--light');
-	} else {
-		header.classList.remove('header--light');
+const viewHeight = window.innerHeight;
+const changeHeader = function () {
+	let scrolled = window.scrollY + headerHeight;
+	for (let i = 0; i < sections.length; i++) {
+		if (scrolled >= sections[i][0] && scrolled <= sections[i][1]) {
+			header.classList.contains('header--light') || header.classList.add('header--light');
+			break;
+		} else if (
+			(i == sections.length - 1 && scrolled <= sections[i][0]) ||
+			scrolled >= sections[i][1]
+		) {
+			header.classList.contains('header--light') && header.classList.remove('header--light');
+		}
 	}
-}
+};
+window.addEventListener('scroll', changeHeader);
 
-sections.forEach(item => {
-	observer.observe(item);
+const topButton = document.querySelector('button[data-top]');
+topButton.addEventListener('click', () => {
+	window.scrollTo({
+		top: 0,
+		behavior: 'smooth',
+	});
 });
