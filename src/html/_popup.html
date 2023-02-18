@@ -1,25 +1,26 @@
-<div id="callback" aria-hidden="true" class="popup">
+<div id="thanks" aria-hidden="true" class="popup">
 	<div class="popup__wrapper">
-		<div class="popup__content">
+		<div class="popup__content thanks">
 			<button data-close type="button" class="popup__close">
-            <svg>
-               <use xlink:href="@img/sprite.svg#close">
-            </svg>
-         </button>
-			<div class="popup__text">
-            <div class="popup__block-header block-header">
-               <svg>
-                  <use xlink:href="@img/sprite.svg#right-arrow">
-               </svg>
-               <h2>Свяжитесь с нами</h2>
-            </div>
-            <p>
-               Оставьте заявку и наш менеджер свяжется с Вами в течении 15 минут.
-            </p>
-            <form action="mail.php" class="popup__form">
-               <input autocomplete="off" type="tel" name="Номер телефона" placeholder="номер телефона">
-               <input type="submit" value="Оставить заявку">
-            </form>
+				<svg
+					width="28"
+					height="27"
+					viewBox="0 0 28 27"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M2.12132 1.93945L26.1213 25.9395M26 1.93945L2 25.9395"
+						stroke="black"
+						stroke-width="3" />
+				</svg>
+			</button>
+			<div class="thanks__body">
+				<h2 class="thanks__title">Благодарим за доверие!</h2>
+				<p class="thanks__descr">Наши менеджеры свяжутся с Вами в ближайшее время.</p>
+				<a href="home.html" class="cta cta--reverse"><span>На главную</span></a>
+			</div>
+			<div class="thanks__image-ibg">
+				<img src="@temp/thanks/image.png" alt="Менеджер нашей компании" />
 			</div>
 		</div>
 	</div>

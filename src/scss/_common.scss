@@ -99,6 +99,28 @@
 		transform: translate3d(-50%, calc(-40% + 5px), 0);
 	}
 }
+@keyframes shakeY-4 {
+	0%,
+	to {
+		transform: translateZ(0);
+		filter: blur(3.5px);
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		transform: translate3d(0px, -10px, 0);
+		filter: blur(1.5px);
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		transform: translate3d(0, 10px, 0);
+		filter: blur(3.5px);
+	}
+}
 @keyframes pulse {
 	0% {
 		-webkit-transform: scaleX(1);

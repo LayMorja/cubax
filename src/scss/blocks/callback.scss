@@ -1,17 +1,61 @@
 .callback {
+	position: relative;
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-end;
 	> * {
 		width: 100%;
 	}
 	padding-bottom: rem(25);
+	&::before {
+		display: none;
+		content: '';
+		position: absolute;
+		top: 2%;
+		right: 7%;
+		width: rem(180);
+		height: rem(90);
+		@extend %bg-con;
+		background-image: url('@temp/callback/wing.png');
+		animation: float 6s ease-in-out infinite;
+		@media (max-width: $mobile) {
+			display: inline-block;
+		}
+		@media (max-width: $mobileMedium) {
+			width: rem(130);
+			right: 20%;
+		}
+	}
 
 	&__body {
+		position: relative;
 		@extend %fl-r-ct;
 		@media (max-width: $tablet) {
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 7%;
+			width: rem(259);
+			height: rem(129);
+			@extend %bg-con;
+			background-image: url('@temp/callback/wing.png');
+			animation: float 4s ease-in-out infinite;
+			@media (max-width: $notebook) {
+				top: -10%;
+				right: 0;
+				width: rem(220);
+			}
+			@media (max-width: $tablet) {
+				top: 20%;
+			}
+			@media (max-width: $mobile) {
+				display: none;
+			}
 		}
 	}
 
@@ -209,6 +253,10 @@
 				padding: rem(24) rem(40);
 			}
 		}
+		@media (max-width: em(349.98)) {
+			padding-right: rem(10);
+			padding-left: rem(10);
+		}
 	}
 
 	&__circle-1,
@@ -322,6 +370,20 @@
 	}
 
 	&__footer {
-		margin-top: auto;
+		margin-top: rem(40);
+	}
+}
+@keyframes float {
+	0% {
+		filter: drop-shadow(20px 5px 5px rgba(0, 0, 0, 0.2));
+		transform: translatey(0px);
+	}
+	50% {
+		filter: drop-shadow(0 25px 15px rgba(0, 0, 0, 0.2));
+		transform: translatey(-20px);
+	}
+	100% {
+		filter: drop-shadow(20px 5px 5px rgba(0, 0, 0, 0.2));
+		transform: translatey(0px);
 	}
 }

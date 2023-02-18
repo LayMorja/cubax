@@ -1,7 +1,26 @@
 // Подключение функционала "Чертогов Фрилансера"
-// import { isMobile } from "./functions.js";
+import { isMobile } from './functions.js';
 // Подключение списка активных модулей
 // import { flsModules } from "./modules.js";
+
+if (!isMobile.any()) {
+	$('._tilt').tilt({ scale: 1.05, speed: 1000, perspective: 800 });
+}
+
+$('.preview__big-slider').slick({
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	arrows: false,
+	fade: true,
+	asNavFor: '.preview__mini-slider',
+});
+$('.preview__mini-slider').slick({
+	slidesToShow: 4,
+	slidesToScroll: 1,
+	asNavFor: '.preview__big-slider',
+	focusOnSelect: true,
+	arrows: false,
+});
 
 const header = document.querySelector('header.header');
 const headerHeight =
@@ -12,7 +31,6 @@ const sections = Array.from(document.querySelectorAll('section._dark')).map(item
 	item.offsetTop + item.offsetHeight,
 ]);
 
-const viewHeight = window.innerHeight;
 const changeHeader = function () {
 	let scrolled = window.scrollY + headerHeight;
 	for (let i = 0; i < sections.length; i++) {
@@ -29,10 +47,13 @@ const changeHeader = function () {
 };
 window.addEventListener('scroll', changeHeader);
 
-const topButton = document.querySelector('button[data-top]');
-topButton.addEventListener('click', () => {
-	window.scrollTo({
-		top: 0,
-		behavior: 'smooth',
+const topButton = document.querySelectorAll('button[data-top]');
+topButton.forEach(button => {
+	button.addEventListener('click', () => {
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: 'smooth',
+		});
 	});
 });

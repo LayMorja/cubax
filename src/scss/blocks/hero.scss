@@ -41,6 +41,50 @@
 		@media (max-width: $mobileSmall) {
 			padding-bottom: 80%;
 		}
+		&::after,
+		&::before {
+			content: '';
+			position: absolute;
+			@extend %bg-con;
+			animation: shakeY 45s ease-in-out infinite;
+		}
+		&::before {
+			content: '';
+			top: 0;
+			right: 0;
+			width: rem(44);
+			height: rem(41);
+			background-image: url('@temp/hero/balloon_1.png');
+			filter: blur(3.5px);
+			animation-delay: 2s;
+			animation-name: shakeY-4;
+			animation-duration: 35s;
+			@media (max-width: $mobileSmall) {
+				top: 25%;
+				right: 20%;
+				width: rem(21);
+				height: rem(19);
+			}
+			@media (max-width: $mobileMini) {
+				top: 20%;
+			}
+		}
+		&::after {
+			top: -35%;
+			right: -10%;
+			width: rem(74);
+			height: rem(98);
+			background-image: url('@temp/hero/balloon_2.png');
+			@media (max-width: $mobileSmall) {
+				top: 15%;
+				right: 8%;
+				width: rem(35);
+				height: rem(46);
+			}
+			@media (max-width: $mobileMini) {
+				top: 5%;
+			}
+		}
 	}
 
 	&__house {
@@ -178,15 +222,18 @@
 			@media (max-width: $mobileNormal) {
 				width: auto;
 				max-width: 100%;
-				flex: 1 1 49%;
+				flex: 0 0 48%;
 				&:not(:last-child) {
 					margin-right: 0;
 				}
 				&:not(:nth-child(2n)) {
-					margin-right: 2%;
+					margin-right: 4%;
 				}
 			}
-			@media (max-width: $mobileMini) {
+			@media (max-width: $mobileSmall) {
+				padding-right: rem(20);
+			}
+			@media (max-width: $mobileExtraMini) {
 				flex: 1 1 auto;
 				width: 100%;
 				&:not(:nth-child(2n)) {

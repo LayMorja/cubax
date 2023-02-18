@@ -35,6 +35,7 @@
 		gap: rem(30);
 		@media (max-width: $tablet) {
 			grid-template-columns: 1fr;
+			gap: 0;
 		}
 	}
 

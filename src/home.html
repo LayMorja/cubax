@@ -30,7 +30,7 @@
 								<img src="@temp/hero/home_3.png" alt="" aria-hidden="true" />
 							</span>
 						</div>
-						<button class="hero__button cta"><span>Оставить заявку</span></button>
+						<button class="hero__button cta" data-popup="#thanks"><span>Оставить заявку</span></button>
 					</div>
 					<div class="hero__container container container--xl">
 						<ul class="hero__benefits benefits-row">
@@ -240,9 +240,9 @@
 											<span class="card-tech__benefits-description">Варианты дизайна</span>
 										</li>
 									</ul>
-									<a href="javascript:void(0);" class="card-tech__link cta cta--reverse">
+									<button type="button" aria-label="Открыть окно подробностей" data-popup="#house-1" class="card-tech__link cta cta--reverse">
 										<span>Подробнее</span>
-									</a>
+									</button>
 								</div>
 							</article>
 							<article class="tech__card card-tech">
@@ -272,9 +272,9 @@
 											<span class="card-tech__benefits-description">Проекты</span>
 										</li>
 									</ul>
-									<a href="javascript:void(0);" class="card-tech__link cta cta--reverse">
+									<button type="button" aria-label="Открыть окно подробностей" data-popup="#house-1" class="card-tech__link cta cta--reverse">
 										<span>Подробнее</span>
-									</a>
+                           </button>
 								</div>
 							</article>
 						</div>
@@ -368,7 +368,8 @@
 			</main>
 			<!-- @@include("./html/_footer.html",{}) -->
 		</div>
-		<!-- @@include("./html/_popup.html", {})  -->
+		@@include("./html/_popup.html", {}) 
+		@@include("./html/_house-popup.html", {}) 
 		@@include("./html/_js-vendors.html",{})
 	</body>
 </html>

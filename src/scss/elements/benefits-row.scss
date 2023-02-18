@@ -27,5 +27,9 @@
 		font-weight: 500;
 		font-size: rem(14);
 		line-height: math.div(22, 14);
+		@media (max-width: $mobileSmall) {
+			font-size: rem(13);
+			word-break: break-word;
+		}
 	}
 }
