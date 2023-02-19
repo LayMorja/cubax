@@ -3,6 +3,7 @@ import { isMobile } from './functions.js';
 // Подключение списка активных модулей
 // import { flsModules } from "./modules.js";
 
+//* Jquery ====================================================================================================
 if (!isMobile.any()) {
 	$('._tilt').tilt({ scale: 1.05, speed: 1000, perspective: 800 });
 }
@@ -13,6 +14,7 @@ $('.preview__big-slider').slick({
 	arrows: false,
 	fade: true,
 	asNavFor: '.preview__mini-slider',
+	centerMode: true,
 });
 $('.preview__mini-slider').slick({
 	slidesToShow: 4,
@@ -22,6 +24,22 @@ $('.preview__mini-slider').slick({
 	arrows: false,
 });
 
+$('[data-fancy]').fancybox();
+
+const sliderSelector = '.preview__big-slider .slick-slide:not(.slick-cloned)';
+$().fancybox({
+	selector: sliderSelector,
+	backFocus: false,
+	afterShow: function (instance, current) {
+		current.opts.$orig
+			.closest('.slick-initialized')
+			.slick('slickGoTo', parseInt(current.index), true);
+	},
+});
+
+//* Vanilla JS ====================================================================================================
+
+// Header color on scroll
 const header = document.querySelector('header.header');
 const headerHeight =
 	(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) * 16) /
@@ -47,13 +65,29 @@ const changeHeader = function () {
 };
 window.addEventListener('scroll', changeHeader);
 
-const topButton = document.querySelectorAll('button[data-top]');
-topButton.forEach(button => {
-	button.addEventListener('click', () => {
+// Button "go-to-top"
+const topButtons = document?.querySelectorAll('button[data-top]');
+if (topButtons.length) {
+	topButtons.forEach(button => {
+		button.addEventListener('click', () => {
+			window.scrollTo({
+				top: 0,
+				left: 0,
+				behavior: 'smooth',
+			});
+		});
+	});
+}
+
+// Butotn "scroll-to-next"
+const scrollButton = document.querySelector('[data-bottom]');
+if (scrollButton) {
+	const section = document.querySelectorAll('section')[1];
+	scrollButton.addEventListener('click', () => {
 		window.scrollTo({
-			top: 0,
+			top: section.offsetTop,
 			left: 0,
 			behavior: 'smooth',
 		});
 	});
-});
+}

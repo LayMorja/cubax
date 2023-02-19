@@ -12,8 +12,24 @@
 		padding-top: calc(var(--header-height) + rem(40));
 	}
 	&._dark {
+		position: relative;
 		background-color: #222;
+		background: linear-gradient(199.52deg, #161b22 9.98%, #202e43 70.51%, #0d1725 88.6%);
 		color: var(--clr-white);
+		&::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			@extend %bg-cov;
+			background-image: url('@temp/tech/smog.png');
+			animation: shakeY 20s ease-in-out infinite alternate;
+		}
+	}
+	&:not(._dark) {
+		background-image: url('@temp/hero/bg.jpg');
 	}
 }
 .title {
@@ -121,6 +137,25 @@
 		filter: blur(3.5px);
 	}
 }
+@keyframes shakeY-5 {
+	0%,
+	to {
+		transform: translateY(rem(100));
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		transform: translate3d(rem(-3), rem(97), rem(-3));
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		transform: translate3d(rem(3), rem(103), rem(3));
+	}
+}
 @keyframes pulse {
 	0% {
 		-webkit-transform: scaleX(1);
@@ -144,5 +179,19 @@
 	}
 	to {
 		transform: scaleX(1) translateX(-50%);
+	}
+}
+@keyframes pulse-3 {
+	0% {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1);
+	}
+	50% {
+		-webkit-transform: scale3d(1.17, 1.17, 1.17);
+		transform: scale3d(1.17, 1.17, 1.17);
+	}
+	to {
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1);
 	}
 }

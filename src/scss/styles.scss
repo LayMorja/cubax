@@ -128,11 +128,14 @@ body {
 @import 'elements/benefits-row';
 @import 'elements/card-tech';
 @import 'elements/return';
+@import 'elements/mousewheel';
 
 // Подключение крупных блоков
 @import 'blocks/hero';
 @import 'blocks/tech';
 @import 'blocks/callback';
+@import 'blocks/hero--inner';
+@import 'blocks/walls';
 
 // Подключение стилей общих элементов проекта
 @import 'common';

@@ -1,0 +1,44 @@
+.mousewheel {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	min-height: rem(133);
+
+	&:focus {
+		outline: none;
+	}
+
+	&__icon {
+		position: relative;
+		z-index: 2;
+		@extend %fl-a-ct;
+		flex: 0 0 rem(45);
+		width: rem(45);
+		height: rem(45);
+		border-radius: 50%;
+		border: 1px solid #728095;
+		animation: updown 2s ease infinite alternate;
+	}
+	&__text {
+		white-space: nowrap;
+		position: relative;
+		z-index: 3;
+		transform: rotate(-90deg) translateX(rem(65));
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 1;
+		letter-spacing: 0.04em;
+		color: #728095;
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: rem(-30);
+			width: rem(20);
+			height: 1px;
+			background-color: #728095;
+			transform: translateY(-50%);
+		}
+	}
+}

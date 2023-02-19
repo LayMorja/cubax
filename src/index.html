@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Вёрстка «NEW_PROJECT_NAME»</title>
-      <link rel="shortcut icon" href="favicon.ico">
+		<link rel="shortcut icon" href="favicon.ico" />
 	</head>
 	<body>
 		<div class="rootpage">
@@ -15,6 +15,7 @@
 			<h2 class="ready">Готовые страницы:</h2>
 			<ol class="rootpage__list">
 				<li><a target="_blank" href="home.html">Главная</a></li>
+				<li><a target="_blank" href="private.html">Для дома</a></li>
 			</ol>
 			<!-- <h2>Попапы:</h2>
 			<ol class="rootpage__list">
@@ -29,19 +30,26 @@
 				<h2>Мои контакты:</h2>
 				<p>Почта: <a href="mailto:evil-corporaty@yandex.ru">evil-corporaty@yandex.ru</a></p>
 				<p>Телефон: <a href="tel:89116562686">+7(911)656-26-86</a></p>
-				<p>Соц. сеть: <a target="_blank" href="https://vk.com/laymorja">VK</a>, <a target="_blank" href="https://tlgg.ru/@laymorja">Telegram</a>, <a target="_blank" href="https://github.com/LayMorja">GitHub</a></p>
+				<p>
+					Соц. сеть: <a target="_blank" href="https://vk.com/laymorja">VK</a>,
+					<a target="_blank" href="https://tlgg.ru/@laymorja">Telegram</a>,
+					<a target="_blank" href="https://github.com/LayMorja">GitHub</a>
+				</p>
 			</div>
 		</div>
 	</body>
 	<style>
 		@charset "UTF-8";
-		* ,*::before, *::after {
+		*,
+		*::before,
+		*::after {
 			padding: 0px;
 			margin: 0px;
 			border: 0px;
-			box-sizing: border-box; 
+			box-sizing: border-box;
 		}
-		html, body {
+		html,
+		body {
 			height: 100%;
 			margin: 0;
 			padding: 0;
@@ -51,7 +59,7 @@
 			background-color: #32373e;
 		}
 		body {
-			font-family: "Cera Pro", sans-serif;
+			font-family: 'Cera Pro', sans-serif;
 			font-size: 100%;
 			line-height: 1;
 			font-size: 1rem;
@@ -64,7 +72,7 @@
 			text-decoration: underline;
 			color: #a57a3e;
 		}
-			a:hover {
+		a:hover {
 			text-decoration: none;
 		}
 		ul li {
@@ -78,17 +86,17 @@
 			min-height: 100%;
 			overflow: hidden;
 		}
-		.rootpage{
+		.rootpage {
 			padding: 30px;
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
 		}
-      .rootpage h1 {
-         text-shadow: 4px 6px 5px #883d0b;
-      }
+		.rootpage h1 {
+			text-shadow: 4px 6px 5px #883d0b;
+		}
 		@media (max-width: 767px) {
-			.rootpage{
+			.rootpage {
 				padding: 30px 15px;
 			}
 		}
@@ -96,17 +104,17 @@
 			color: #fff;
 			font-size: 2.5rem;
 			margin: 0px 0px 1.25rem 0px;
-         font-weight: 600;
-         position: relative;
+			font-weight: 600;
+			position: relative;
 		}
-      h1:before {
-         display: inline-block;
-         content: '';
-         position: absolute;
-         top: 0;
-         left: 0;
-         background: url(img/title-back.png) center / cover no-repeat;
-      }
+		h1:before {
+			display: inline-block;
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: url(img/title-back.png) center / cover no-repeat;
+		}
 		@media (max-width: 767px) {
 			h1 {
 				font-size: 1.85rem;
@@ -118,48 +126,47 @@
 			font-size: 1.25rem;
 			margin: 0px 0px 1rem 0px;
 		}
-      h2:not(.ready) {
-         text-shadow: 2px 2px 3px #9f82b7;
-         margin: 0 0 0.5rem 0;
-      }
+		h2:not(.ready) {
+			text-shadow: 2px 2px 3px #9f82b7;
+			margin: 0 0 0.5rem 0;
+		}
 		@media (max-width: 767px) {
-         h2 {
+			h2 {
 				font-size: 1.125rem;
 				margin: 0px 0px 1rem 0px;
 			}
 		}
-		.rootpage__info{
+		.rootpage__info {
 			line-height: 140%;
 			margin: 0px 0px 1.5rem 0px;
 		}
 
-		.rootpage__list{
+		.rootpage__list {
 			margin: 0px 0px 2.25rem 1.25rem;
 		}
-		.rootpage__list li:not(:last-child){
+		.rootpage__list li:not(:last-child) {
 			margin: 0px 0px 15px 0px;
 		}
 		.rootpage__contacts,
-		.rootpage__tnx{
+		.rootpage__tnx {
 			border-radius: 200px;
 			padding: 20px 65px;
 			line-height: 140%;
 		}
-		@media (max-width: 767px){
-		.rootpage__contacts,
-		.rootpage__tnx{
-			border-radius:40px;
-			padding: 20px;
+		@media (max-width: 767px) {
+			.rootpage__contacts,
+			.rootpage__tnx {
+				border-radius: 40px;
+				padding: 20px;
+			}
 		}
-		}
-		.rootpage__contacts{
+		.rootpage__contacts {
 			background: #565f6a;
-			
 		}
-		.rootpage__contacts a{
+		.rootpage__contacts a {
 			color: #56c3b9;
 		}
-		.rootpage__tnx{
+		.rootpage__tnx {
 			background: #565f6a;
 			margin: 0px 0px 1rem 0px;
 		}

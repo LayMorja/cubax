@@ -3,7 +3,7 @@
 	align-items: center;
 	padding-bottom: rem(55);
 	@media (min-height: em(1080)) {
-		margin-bottom: rem(75);
+		padding-bottom: rem(75);
 	}
 
 	&__container.container--xl {
