@@ -1,9 +1,22 @@
 .hero {
 	@extend %fl-c;
 	align-items: center;
-	padding-bottom: rem(55);
-	@media (min-height: em(1080)) {
-		padding-bottom: rem(75);
+	&.page__hero {
+		padding-top: var(--header-height);
+		@media (max-width: $tablet) {
+			padding-top: calc(var(--header-height) + rem(40));
+		}
+	}
+	> .mousewheel {
+		position: absolute;
+		z-index: 4;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		@extend %ml;
+		@media (max-width: em(1223.98)) {
+			display: none;
+		}
 	}
 
 	&__container.container--xl {
@@ -209,36 +222,14 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		.benefits-row__item {
-			margin-bottom: rem(20);
-			flex: 1 1 13%;
-			max-width: rem(263);
-			&:not(:last-child) {
-				margin-right: 1.5%;
-			}
-			@media (max-width: $notebook) {
+			@media (min-width: $mobileNormal) {
 				flex: 0 0 rem(260);
 				width: rem(260);
+				margin: 0.75%;
 			}
-			@media (max-width: $mobileNormal) {
-				width: auto;
-				max-width: 100%;
-				flex: 0 0 48%;
-				&:not(:last-child) {
-					margin-right: 0;
-				}
-				&:not(:nth-child(2n)) {
-					margin-right: 4%;
-				}
-			}
-			@media (max-width: $mobileSmall) {
-				padding-right: rem(20);
-			}
-			@media (max-width: $mobileExtraMini) {
-				flex: 1 1 auto;
-				width: 100%;
-				&:not(:nth-child(2n)) {
-					margin-right: 0;
-				}
+			@media (min-width: $notebook) {
+				flex: 1 1 13%;
+				max-width: rem(263);
 			}
 		}
 	}

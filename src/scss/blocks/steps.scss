@@ -1,0 +1,374 @@
+.steps {
+	&.page__steps {
+		padding-bottom: rem(140);
+		@media (min-height: em(1079.98)) {
+			padding-bottom: rem(160);
+		}
+	}
+	&__container {
+		position: relative;
+		z-index: 2;
+		max-width: rem(1300);
+		@media (max-width: $notebook) {
+			max-width: rem(970);
+		}
+	}
+
+	&__title {
+		text-align: center;
+		&:not(:last-child) {
+			margin-bottom: rem(35);
+		}
+	}
+
+	&__descr {
+		text-align: center;
+		&:not(:last-child) {
+			margin-bottom: rem(45);
+		}
+	}
+
+	&__list {
+		@extend %fl-r-st;
+		justify-content: space-between;
+		list-style-type: none;
+		counter-reset: item;
+		li .steps__icon {
+			&:before {
+				counter-increment: item;
+				content: counter(item);
+				position: absolute;
+				right: rem(5);
+				bottom: rem(5);
+				@extend %fl-a-ct;
+				width: rem(37);
+				height: rem(37);
+				border-radius: 50%;
+				font-weight: 700;
+				line-height: 1.5;
+				text-align: center;
+				letter-spacing: 0.04em;
+				color: var(--clr-white);
+				background: linear-gradient(180deg, #ff374f 0%, #b12939 100%);
+				@media (max-width: $mobileSmall) {
+					width: rem(24);
+					height: rem(24);
+					font-size: rem(12);
+				}
+			}
+		}
+		@media (max-width: $tablet) {
+			flex-direction: column;
+			align-items: center;
+		}
+		@media (max-width: $mobileSmall) {
+			padding-left: rem(30);
+		}
+		@media (max-width: $mobileMini) {
+			padding-left: 0;
+			max-width: rem(320);
+		}
+	}
+
+	&__item {
+		position: relative;
+		@extend %fl-c-ct;
+		line-height: 1.5;
+		text-align: center;
+		letter-spacing: 0.04em;
+		&:first-child,
+		&:last-child {
+			margin-top: rem(170);
+			@media (max-width: $tablet) {
+				margin-top: 0;
+			}
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			@extend %bg-con;
+		}
+
+		&--1::after {
+			top: -22%;
+			right: -40%;
+			width: 56%;
+			height: 25.5%;
+			background-image: url('@temp/steps/line-1.svg');
+			@media (max-width: $notebook) {
+				top: -30%;
+				right: -22%;
+			}
+		}
+
+		&--2::after {
+			top: 13%;
+			right: -54%;
+			width: 69%;
+			height: 11%;
+			background-image: url('@temp/steps/line-2.svg');
+			@media (max-width: $notebook) {
+				right: -24%;
+				width: 46%;
+			}
+		}
+
+		&--3::after {
+			top: 32%;
+			right: -52%;
+			width: 56%;
+			height: 25.5%;
+			background-image: url('@temp/steps/line-3.svg');
+			@media (max-width: $notebook) {
+				top: 37%;
+				right: -37%;
+			}
+		}
+		@media (max-width: $tablet) {
+			flex-direction: row;
+			justify-content: center;
+			text-align: left;
+			&:not(:last-child) {
+				margin-bottom: rem(30);
+			}
+			&--1::after,
+			&--2::after,
+			&--3::after {
+				top: auto;
+				right: auto;
+				left: -3%;
+				bottom: -44%;
+				width: rem(24);
+				height: rem(80);
+				background-image: url('@temp/steps/line-mobile.svg');
+			}
+		}
+
+		@media (max-width: em(422.98)) {
+			&--1::after,
+			&--2::after,
+			&--3::after {
+				height: rem(70);
+			}
+			&--1::after {
+				bottom: -26%;
+			}
+		}
+		@media (max-width: em(409.98)) {
+			&--1::after {
+				bottom: -16%;
+			}
+			&--2::after {
+				bottom: -47%;
+			}
+			&--3::after {
+				bottom: -36%;
+			}
+		}
+
+		@media (max-width: $mobileMini) {
+			&--1::after,
+			&--2::after,
+			&--3::after {
+				height: rem(60);
+			}
+			&--2::after {
+				bottom: -44%;
+			}
+			&--3::after {
+				bottom: -40%;
+			}
+		}
+	}
+
+	&__icon {
+		position: relative;
+		z-index: 10;
+		@extend %fl-a-ct;
+		width: rem(167);
+		height: rem(167);
+		flex: 0 0 rem(167);
+		border-radius: 50%;
+		background-image: linear-gradient(
+			180deg,
+			rgba(99, 175, 205, 0.56) 0%,
+			rgba(99, 175, 205, 0) 100%
+		);
+		&:not(:last-child) {
+			margin-bottom: rem(20);
+		}
+		@media (max-width: $notebook) {
+			width: rem(120);
+			height: rem(120);
+			flex: 0 0 rem(120);
+			img {
+				width: rem(50);
+				object-fit: contain;
+			}
+		}
+		@media (max-width: $tablet) {
+			&:not(:last-child) {
+				margin-bottom: rem(0);
+				margin-right: rem(30);
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			width: rem(108);
+			height: rem(108);
+			flex: 0 0 rem(108);
+			&:not(:last-child) {
+				margin-right: rem(25);
+			}
+		}
+	}
+
+	&__item-title {
+		font-weight: 700;
+		&:not(:last-child) {
+			margin-bottom: rem(13);
+		}
+		@media (max-width: $mobileSmall) {
+			font-size: rem(14);
+			&:not(:last-child) {
+				margin-bottom: rem(10);
+			}
+		}
+	}
+
+	&__item-descr {
+		max-width: rem(245);
+		@media (max-width: $notebook) {
+			font-size: rem(14);
+		}
+		@media (max-width: $tablet) {
+			max-width: rem(360);
+		}
+	}
+
+	&__round .round-block {
+		margin: 0 auto;
+		margin-top: rem(-80);
+		@media (max-width: $notebook) {
+			margin-top: rem(-140);
+		}
+		@media (max-width: $tablet) {
+			margin-top: rem(80);
+		}
+		&::before {
+			background-image: url('@temp/steps/round.png');
+		}
+	}
+}
+.round-block {
+	position: relative;
+	z-index: 3;
+	@extend %fl-a-ct;
+	flex-direction: column;
+	width: rem(627);
+	height: rem(627);
+	padding: rem(53) rem(45) rem(100);
+	border-radius: 50%;
+	color: var(--clr-black);
+
+	&::before,
+	&::after,
+	&__cover {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		border-radius: 50%;
+		background-color: var(--clr-white);
+	}
+
+	&::before {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		box-shadow: 0px 9px 20px rgba(73, 93, 124, 0.19);
+		@extend %bg-cov;
+		background-position: center bottom;
+	}
+	&::after {
+		z-index: -2;
+		width: 107%;
+		height: 107%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&__cover {
+		z-index: -3;
+		width: 130%;
+		height: 130%;
+		opacity: 0.1;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		animation: op 3s ease-in-out infinite;
+	}
+
+	&.round-block--mini {
+		padding-top: rem(160);
+		@media (max-width: $notebook) {
+			padding-top: rem(100);
+		}
+		@media (max-width: $mobileMini) {
+			padding-top: rem(20);
+		}
+		.round-block__title {
+			@media (min-width: $mobileSmall) {
+				font-size: rem(30);
+			}
+		}
+	}
+
+	&__title {
+		text-align: center;
+		margin-bottom: auto;
+	}
+
+	&__button {
+		margin-top: rem(40);
+	}
+
+	@media (max-width: $notebook) {
+		width: rem(520);
+		height: rem(520);
+	}
+
+	@media (max-width: $mobileNormal) {
+		width: rem(420);
+		height: rem(420);
+	}
+
+	@media (max-width: $mobileSmall) {
+		width: 100%;
+		height: auto;
+		padding: rem(45) rem(55) rem(70);
+		&::before {
+			width: rem(414);
+			height: rem(414);
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		&::after {
+			width: rem(442);
+			height: rem(442);
+		}
+		&__cover {
+			width: rem(536);
+			height: rem(536);
+		}
+		&__button {
+			width: 100%;
+			padding: rem(21) rem(30);
+		}
+	}
+	@media (max-width: em(419.98)) {
+		padding: rem(45) rem(15) rem(60);
+	}
+}

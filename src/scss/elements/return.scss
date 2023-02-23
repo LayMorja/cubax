@@ -47,25 +47,7 @@
 			transform: translateY(-50%);
 		}
 	}
-}
-@keyframes op {
-	from {
-		opacity: 0.5;
-		transform: translate(-50%, -50%) scale(0);
-	}
-	to {
-		opacity: 0;
-		transform: translate(-50%, -50%) scale(1.2);
-	}
-}
-@keyframes updown {
-	0% {
-		transform: translateY(0);
-	}
-	50% {
-		transform: translateY(rem(-4));
-	}
-	100% {
-		transform: translateY(0);
+	&:focus {
+		outline: none;
 	}
 }

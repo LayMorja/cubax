@@ -1,25 +1,57 @@
 .benefits-row {
-	svg {
-		display: block;
-		width: rem(32);
-		height: rem(32);
-		&:not(:last-child) {
-			margin-bottom: rem(20);
-		}
-		@media (max-width: $mobileSmall) {
-			height: rem(19);
-			width: auto;
-			object-fit: contain;
-		}
-	}
-
 	&__item {
 		border-radius: rem(30);
 		padding: rem(41) rem(22) rem(32) rem(44);
 		background-color: var(--clr-white);
+		@media (max-width: $mobileNormal) {
+			width: auto;
+			max-width: 100%;
+			flex: 0 0 48%;
+			margin: 0;
+			margin-bottom: 4%;
+			&:not(:last-child) {
+				margin-right: 0;
+			}
+			&:not(:nth-child(2n)) {
+				margin-right: 4%;
+			}
+		}
 		@media (max-width: $mobileMedium) {
 			padding: rem(27) rem(32) rem(27) rem(20);
 			border-radius: rem(20);
+		}
+		@media (max-width: $mobileSmall) {
+			padding-right: rem(20);
+		}
+		@media (max-width: $mobileExtraMini) {
+			flex: 1 1 auto;
+			width: 100%;
+			&:not(:nth-child(2n)) {
+				margin-right: 0;
+			}
+		}
+		svg,
+		img {
+			display: block;
+			width: rem(32);
+			height: rem(32);
+			transition: transform 0.32s ease-in-out;
+			&:not(:last-child) {
+				margin-bottom: rem(20);
+			}
+			@media (max-width: $mobileSmall) {
+				height: rem(19);
+				width: auto;
+				object-fit: contain;
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				svg,
+				img {
+					transform: rotate(15deg) scale(1.2);
+				}
+			}
 		}
 	}
 

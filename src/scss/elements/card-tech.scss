@@ -122,7 +122,7 @@
 		@media (max-width: $notebook) {
 			margin-top: rem(-20);
 		}
-		@media (max-width: $mobileMedium) {
+		@media (max-width: $mobileNormal) {
 			margin-top: 0;
 			flex-direction: column;
 		}
@@ -132,6 +132,15 @@
 		flex: 1 1 auto;
 		display: flex;
 		flex-wrap: wrap;
+		@media (max-width: $tablet) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: rem(20);
+			row-gap: rem(30);
+		}
+		@media (max-width: $mobileMini) {
+			gap: rem(12);
+		}
 	}
 
 	&__benefits-item {
@@ -143,20 +152,9 @@
 			margin-right: rem(30);
 		}
 		@media (max-width: $tablet) {
+			margin-bottom: 0;
 			&:not(:nth-child(2n)) {
 				margin-right: 0;
-			}
-			&:not(:last-child) {
-				margin-right: rem(30);
-			}
-		}
-		@media (max-width: $mobileMedium) {
-			flex: 1 1 49%;
-			&:not(:last-child) {
-				margin-right: 0;
-			}
-			&:not(:nth-child(2n)) {
-				margin-right: 2%;
 			}
 		}
 	}
@@ -170,13 +168,17 @@
 		@media (max-width: em(1079.98)) {
 			margin-right: rem(20);
 		}
-		@media (max-width: $mobileNormal) {
+		@media (max-width: $mobile) {
 			width: rem(24);
 			height: rem(24);
+			margin-right: rem(15);
 		}
 		@media (max-width: $mobileSmall) {
 			width: rem(16);
 			height: rem(16);
+		}
+		@media (max-width: $mobileMini) {
+			margin-right: rem(10);
 		}
 	}
 
@@ -190,7 +192,7 @@
 		@media (max-width: $tablet) {
 			font-size: rem(16);
 		}
-		@media (max-width: $mobileMedium) {
+		@media (max-width: $mobile) {
 			font-size: rem(14);
 		}
 		@media (max-width: $mobileSmall) {
@@ -207,10 +209,11 @@
 		}
 		@media (max-width: $tablet) {
 			font-size: rem(16);
-			margin-left: 0;
+			margin-left: rem(18);
 		}
-		@media (max-width: $mobileSmall) {
-			margin-top: rem(10);
+		@media (max-width: $mobileNormal) {
+			margin-left: 0;
+			margin-top: rem(25);
 			align-self: flex-start;
 			font-size: rem(14);
 			padding: rem(15) rem(45);

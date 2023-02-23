@@ -9,8 +9,7 @@
 	border-radius: em(35);
 	background: var(--clr-accent);
 	border: 1px solid transparent;
-	transition: background-color 0.32s ease-in-out, border-color 0.32s ease-in-out,
-		color 0.32s ease-in-out;
+	transition: all 0.32s ease-in-out;
 
 	span {
 		font-weight: 600;
@@ -18,24 +17,22 @@
 		text-align: center;
 		letter-spacing: 0.04em;
 		color: var(--clr-white);
-		transition: color 0.32s ease-in-out;
+		transition: all 0.32s ease-in-out;
 	}
 
 	@media (any-hover: hover) {
 		&:hover {
-			background-color: transparent;
-			border-color: var(--clr-accent);
+			background-color: rgba(255, 55, 78, 0.5);
+			box-shadow: inset 2px 2px 25px rgba(255, 55, 78, 0.6);
+			span {
+				text-shadow: 0px 2px 2px rgba(63, 14, 19, 0.4);
+			}
 		}
 	}
 
 	&--reverse {
 		background-color: transparent;
 		border-color: var(--clr-accent);
-		@media (any-hover: hover) {
-			&:hover {
-				background: var(--clr-accent);
-			}
-		}
 	}
 
 	&._fw {

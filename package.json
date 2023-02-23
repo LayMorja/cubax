@@ -48,6 +48,7 @@
     "gulp-version-number": "latest",
     "gulp-zip": "latest",
     "inputmask": "latest",
+    "just-validate": "^4.2.0",
     "lightgallery": "latest",
     "nouislider": "latest",
     "sass": "latest",

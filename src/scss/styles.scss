@@ -129,6 +129,7 @@ body {
 @import 'elements/card-tech';
 @import 'elements/return';
 @import 'elements/mousewheel';
+@import 'elements/callback-form';
 
 // Подключение крупных блоков
 @import 'blocks/hero';
@@ -136,6 +137,13 @@ body {
 @import 'blocks/callback';
 @import 'blocks/hero--inner';
 @import 'blocks/walls';
+@import 'blocks/projects';
+@import 'blocks/key';
+@import 'blocks/benefits';
+@import 'blocks/steps';
+@import 'blocks/aim';
+@import 'blocks/faq';
+@import 'blocks/variants';
 
 // Подключение стилей общих элементов проекта
 @import 'common';

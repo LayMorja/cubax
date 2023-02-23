@@ -1,0 +1,83 @@
+.faq {
+	display: flex;
+	flex-direction: column;
+	> * {
+		width: 100%;
+	}
+	// padding-bottom: rem(120);
+	// @media (max-width: $mobile) {
+	// 	padding-bottom: rem(100);
+	// }
+
+	&__container {
+		position: relative;
+		z-index: 2;
+		margin-top: auto;
+	}
+
+	&__title {
+		text-align: center;
+		&:not(:last-child) {
+			margin-bottom: rem(55);
+		}
+	}
+
+	&__body {
+		display: flex;
+		@media (max-width: $mobile) {
+			flex-direction: column;
+		}
+	}
+
+	&__feedback {
+		position: relative;
+		flex: 0 0 rem(285);
+		display: flex;
+		flex-direction: column;
+		.cta {
+			width: 100%;
+			margin-top: auto;
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			width: rem(449);
+			height: rem(631);
+			bottom: rem(-120);
+			left: rem(-20);
+			@extend %bg-con;
+			background-image: url('@temp/faq/crane.png');
+			pointer-events: none;
+			@media (max-width: $pc) {
+				left: rem(-110);
+			}
+			@media (max-width: $mobile) {
+				left: 50%;
+				width: rem(264);
+				height: rem(342);
+				bottom: rem(-100);
+				transform: translateX(-50%);
+			}
+		}
+		@media (max-width: $mobile) {
+			flex: 1 1 auto;
+			.cta {
+				max-width: rem(285);
+				margin: 0 auto;
+			}
+		}
+	}
+}
+.faq .spollers {
+	flex: 0 1 100%;
+	&:not(:last-child) {
+		margin-right: rem(100);
+	}
+	@media (max-width: $mobile) {
+		&:not(:last-child) {
+			margin-right: 0;
+			margin-bottom: rem(240);
+		}
+	}
+}

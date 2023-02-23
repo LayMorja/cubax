@@ -1,5 +1,9 @@
 //====================================================================================================
-.footer-callback {
+.footer {
+	position: relative;
+	z-index: 4;
+	// margin-top: rem(-110);
+	padding-bottom: rem(25);
 	&__body {
 		display: flex;
 		align-items: flex-end;
@@ -9,7 +13,7 @@
 		}
 	}
 
-	&__container {
+	&__content {
 		@media (max-width: $tablet) {
 			display: flex;
 			justify-content: space-between;
@@ -18,7 +22,8 @@
 	}
 
 	&__policy,
-	&__rights {
+	&__rights,
+	&__author span {
 		font-size: rem(14);
 		line-height: 1.71;
 		letter-spacing: 0.04em;
@@ -37,34 +42,46 @@
 		margin-right: auto;
 		@media (max-width: $tablet) {
 			margin-right: 0;
-			order: 2;
+			order: 1;
 		}
 	}
 
 	&__rights {
+		margin-top: rem(15);
+		text-align: center;
 		color: var(--clr-black-secondary);
-		@media (max-width: $tablet) {
-			order: 3;
-		}
 	}
 
-	&__logo {
-		display: flex;
-		width: rem(174);
-		flex: 0 0 rem(174);
-		height: rem(53);
-		object-fit: contain;
+	&__author {
+		@extend %fl-r-bt;
 		margin-left: rem(80);
-		@media (max-width: $tablet) {
-			margin-left: 0;
-			flex: 1 1 auto;
-			order: 0;
-			width: rem(140);
-			margin-bottom: rem(5);
+		span {
+			line-height: 1.2;
+			margin-right: rem(12);
 		}
-		@media (max-width: $mobileSmall) {
-			width: rem(100);
-			margin-bottom: 0;
+		@media (max-width: $tablet) {
+			margin-bottom: rem(5);
+			margin-left: 0;
+		}
+		@media (max-width: $mobileNormal) {
+			flex-direction: column;
+			align-items: flex-start;
+			margin-bottom: rem(15);
+		}
+		img {
+			width: rem(140);
+			flex: 0 0 rem(140);
+			height: rem(43);
+			object-fit: contain;
+			@media (max-width: $tablet) {
+				flex: 1 1 auto;
+				order: 0;
+				width: rem(120);
+				order: 0;
+			}
+			@media (max-width: $mobileSmall) {
+				width: rem(100);
+			}
 		}
 	}
 

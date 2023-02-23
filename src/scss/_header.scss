@@ -7,14 +7,17 @@
 
 	&--light {
 		color: var(--clr-white);
-		.menu__body > ul > li a {
-			@media (any-hover: hover) {
-				&:hover {
+		@media (min-width: $tablet) {
+			.menu__body > ul > li a {
+				color: var(--clr-white);
+				@media (any-hover: hover) {
+					&:hover {
+						color: rgb(230, 230, 230);
+					}
+				}
+				&:focus {
 					color: var(--clr-white);
 				}
-			}
-			&:focus {
-				color: var(--clr-white);
 			}
 		}
 		.call__icon path {

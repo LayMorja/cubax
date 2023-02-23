@@ -4,10 +4,8 @@ import { isMobile } from './functions.js';
 // import { flsModules } from "./modules.js";
 
 //* Jquery ====================================================================================================
-if (!isMobile.any()) {
-	$('._tilt').tilt({ scale: 1.05, speed: 1000, perspective: 800 });
-}
 
+// Main Page
 $('.preview__big-slider').slick({
 	slidesToShow: 1,
 	slidesToScroll: 1,
@@ -24,6 +22,7 @@ $('.preview__mini-slider').slick({
 	arrows: false,
 });
 
+// All pages
 $('[data-fancy]').fancybox();
 
 const sliderSelector = '.preview__big-slider .slick-slide:not(.slick-cloned)';
@@ -37,6 +36,43 @@ $().fancybox({
 	},
 });
 
+// Inner pages
+$('.projects__slider').slick({
+	slidesToShow: 2.8,
+	slidesToScroll: 1,
+	prevArrow: '.projects__slider-prev',
+	nextArrow: '.projects__slider-next',
+	loop: true,
+	responsive: [
+		{
+			breakpoint: 1366,
+			settings: {
+				slidesToShow: 2,
+			},
+		},
+		{
+			breakpoint: 992,
+			settings: {
+				slidesToShow: 1,
+				variableWidth: true,
+			},
+		},
+	],
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+	if (window.innerWidth <= 639.98) {
+		$('.variants__list').css('display', 'block');
+		$('.variants__list').slick({
+			loop: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			prevArrow: false,
+			nextArrow: '.variants__next',
+		});
+	}
+});
+
 //* Vanilla JS ====================================================================================================
 
 // Header color on scroll
@@ -44,7 +80,7 @@ const header = document.querySelector('header.header');
 const headerHeight =
 	(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) * 16) /
 	2;
-const sections = Array.from(document.querySelectorAll('section._dark')).map(item => [
+let sections = Array.from(document.querySelectorAll('section._dark')).map(item => [
 	item.offsetTop,
 	item.offsetTop + item.offsetHeight,
 ]);
@@ -64,7 +100,12 @@ const changeHeader = function () {
 	}
 };
 window.addEventListener('scroll', changeHeader);
-
+window.addEventListener('resize', () => {
+	sections = Array.from(document.querySelectorAll('section._dark')).map(item => [
+		item.offsetTop,
+		item.offsetTop + item.offsetHeight,
+	]);
+});
 // Button "go-to-top"
 const topButtons = document?.querySelectorAll('button[data-top]');
 if (topButtons.length) {

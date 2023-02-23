@@ -1,53 +1,76 @@
 // Блок со спойлерами
 .spollers {
 	display: grid;
-	gap: 15px;
+	gap: rem(33);
 }
 // Спойлер
 .spollers__item {
-	font-size: rem(20);
+	font-size: rem(16);
+	@media (max-width: $mobileNormal) {
+		font-size: rem(14);
+	}
 }
 // Заголовок спойлера
 .spollers__title {
+	position: relative;
+	@extend %fl-r-ct;
+	justify-content: space-between;
 	width: 100%;
 	cursor: default;
 	text-align: left;
-	border: 1px solid #eee;
-	padding: rem(10) rem(15);
-	border-radius: rem(5);
-	position: relative;
+	padding: rem(8) rem(9) rem(8) rem(32);
+	background: var(--clr-blue-primary);
+	border-radius: rem(35);
+	font-weight: 600;
+	line-height: 1.5;
+	letter-spacing: 0.04em;
+	transition: background-color 0.32s ease-in-out;
 	._spoller-init & {
 		cursor: pointer;
-		&::before,
-		&::after {
-			content: "";
-			position: absolute;
-			right: 10px;
-			top: 50%;
-			background-color: #000;
-			height: 2px;
-			width: 15px;
-			transition: transform 0.5s ease 0s;
-		}
-		&::before {
-			transform: translate(-75%, -50%) rotate(40deg);
-		}
-		&::after {
-			transform: translate(0, -50%) rotate(-40deg);
-		}
-		&._spoller-active {
-			&::before {
-				transform: translateX(-75%) rotate(-40deg);
-			}
-			&::after {
-				transform: rotate(40deg);
-			}
-		}
+	}
+	&._spoller-active {
+		background-color: #495d7c;
 	}
 }
+._spoller-init .spollers__close {
+	position: relative;
+	display: block;
+	flex: 0 0 rem(54);
+	width: rem(54);
+	height: rem(54);
+	border-radius: 50%;
+	background-color: #4899b9;
+	transition: background-color 0.32s ease-in-out;
+	margin-left: rem(18);
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		background-color: var(--clr-white);
+		transform: translate(-50%, -50%);
+	}
+	&::before {
+		width: 40%;
+		height: 4px;
+	}
+	&::after {
+		height: 40%;
+		width: 4px;
+		transition: transform 0.32s ease-in-out;
+	}
+}
+._spoller-active .spollers__close {
+	background-color: #3d4e68;
+	&::after {
+		transform: translate(-50%, -50%) rotate(90deg);
+	}
+}
+
 // Контент спойлера
 .spollers__body {
-	padding: rem(20);
-	border-radius: rem(5);
-	border: 1px solid #eee;
+	padding: rem(32);
+	line-height: 1.5;
+	letter-spacing: 0.04em;
 }

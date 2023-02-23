@@ -12,7 +12,7 @@
 */
 
 // Включить/выключить FLS (Full Logging System) (в работе)
-// window['FLS'] = true;
+window['FLS'] = true;
 
 // Подключение основного файла стилей
 // import "../scss/style.scss";
@@ -39,7 +39,7 @@ flsFunctions.menuInit();
 Документация:
 Сниппет (HTML): spollers
 */
-// flsFunctions.spollers();
+flsFunctions.spollers();
 
 /*
 Модуль работы с табами
@@ -108,8 +108,9 @@ import * as flsForms from './files/forms/forms.js';
 Документация плагина: https://github.com/RobinHerbots/inputmask
 Сниппет(HTML):
 */
-// import "./files/forms/inputmask.js";
+import './files/forms/inputmask.js';
 
+import './files/forms/validate.js';
 /* Модуль работы с ползунком */
 /*
 Подключение и настройка выполняется в файле js/files/forms/range.js
