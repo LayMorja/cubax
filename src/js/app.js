@@ -110,7 +110,7 @@ import * as flsForms from './files/forms/forms.js';
 */
 import './files/forms/inputmask.js';
 
-import './files/forms/validate.js';
+// import './files/forms/validate.js';
 /* Модуль работы с ползунком */
 /*
 Подключение и настройка выполняется в файле js/files/forms/range.js

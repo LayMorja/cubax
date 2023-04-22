@@ -1,7 +1,6 @@
 .benefits {
-	// padding-bottom: rem(70);
-	@media (min-height: em(1079.98)) {
-		// padding-bottom: rem(100);
+	&.page__benefits {
+		min-height: 0;
 	}
 
 	&__title.title {
@@ -62,7 +61,7 @@
 				grid-column: span 1;
 			}
 		}
-		&--business {
+		&.benefits__body--business {
 			&:not(:last-child) {
 				margin-bottom: rem(70);
 			}
@@ -71,6 +70,15 @@
 			}
 			.benefits__item:last-child {
 				grid-column: span 1;
+				@media (max-width: em(1189.98)) {
+					grid-column: span 1;
+				}
+				@media (max-width: $mobileMedium) {
+					grid-column: span 1;
+				}
+				@media (max-width: $mobileMini) {
+					grid-column: span 1;
+				}
 			}
 		}
 	}

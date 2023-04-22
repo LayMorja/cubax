@@ -1,14 +1,11 @@
 .projects {
-	// padding-bottom: rem(75);
-	// @media (min-height: em(1079.98)) {
-	// 	margin-bottom: rem(100);
-	// }
 	@media (max-width: $mobileSmall) {
 		padding-bottom: rem(60);
 	}
-	&__container {
+	&__content {
 		text-align: center;
 		max-width: rem(950);
+		margin: 0 auto;
 	}
 
 	&__title {
@@ -25,7 +22,7 @@
 
 	&__slider-block {
 		position: relative;
-		@extend %ml;
+		margin: 0 rem(20);
 		&:not(:first-child) {
 			margin-top: rem(50);
 			@media (min-height: em(1079.98)) {
@@ -57,8 +54,9 @@
 			outline: none;
 			box-shadow: 0px 7px 4px rgba(73, 93, 124, 0.1);
 		}
-		&:not(:last-child) {
-			margin-right: rem(20);
+		margin: 0 rem(10);
+		@media (max-width: $pc) {
+			padding-bottom: rem(45);
 		}
 		@media (max-width: $tablet) {
 			max-width: rem(420);
@@ -88,10 +86,13 @@
 	}
 
 	&__slide-content {
-		margin-top: rem(-60);
+		margin-top: rem(-40);
 		@extend %fl-r-ct;
 		justify-content: space-between;
 		padding: rem(0) rem(55);
+		@media (max-width: $pc) {
+			margin-top: rem(-50);
+		}
 		@media (max-width: $tablet) {
 			flex-direction: column;
 			align-items: flex-start;
@@ -106,6 +107,7 @@
 				color: var(--clr-white);
 			}
 		}
+		margin-left: rem(10);
 		@media (max-width: $tablet) {
 			padding: rem(15) rem(35);
 			&:not(:first-child) {
@@ -125,7 +127,7 @@
 		@extend %sub;
 	}
 
-	&__container .cta {
+	&__content .cta {
 		margin-top: rem(40);
 		@media (max-width: em(349.98)) {
 			font-size: rem(14);
@@ -171,6 +173,12 @@
 			width: rem(10);
 			object-fit: contain;
 		}
+	}
+}
+.projects__slider-next {
+	margin-right: rem(50);
+	@media (max-width: $pc) {
+		margin-right: rem(30);
 	}
 }
 .projects__slider-prev {

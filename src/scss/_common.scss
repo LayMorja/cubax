@@ -7,8 +7,8 @@
 	padding-top: calc(var(--header-height) - rem(20));
 	padding-bottom: calc(var(--header-height) - rem(20));
 	@extend %bg-cov;
-	@media (min-height: em(1080)) {
-		padding-top: var(--header-height) + rem(45);
+	@media (min-height: em(950)) {
+		min-height: 0;
 	}
 	&._dark {
 		position: relative;
@@ -31,6 +31,7 @@
 		background-image: url('@temp/hero/bg.jpg');
 	}
 }
+
 .title {
 	@extend %tit;
 }

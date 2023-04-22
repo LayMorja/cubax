@@ -636,40 +636,53 @@ body::after {
 
 //====================================================================================================
 .request {
+	position: relative;
+	max-width: rem(627);
+	max-height: rem(627);
 	display: flex;
 	justify-content: center;
 	background-color: transparent;
-	.callback-form {
-		position: relative;
-		margin: 0 auto;
+	.callback__options.callback-form {
+		@media (min-width: $pc) {
+			flex: 0 0 rem(627);
+			width: rem(627);
+			height: rem(627);
+		}
+		@media (min-width: $tablet) {
+			flex: 0 0 rem(580);
+			width: rem(580);
+			height: rem(580);
+		}
 		@media (max-width: em(359.98)) {
 			padding-right: 0;
 			padding-left: 0;
 		}
 	}
-	.callback-form .popup__close {
+	.popup__close {
 		position: absolute;
+		z-index: 8;
 		width: rem(24);
 		height: rem(24);
 		top: rem(20);
 		right: rem(20);
 		svg {
-			width: 100%;
-			height: 100%;
+			width: rem(24);
+			height: rem(24);
 			object-fit: contain;
 		}
 		@media (max-width: $mobileMedium) {
+			top: 7%;
+			right: 10%;
 			svg path {
 				fill: var(--clr-black);
 				stroke: var(--clr-black);
 			}
 		}
 		@media (max-width: $mobileMini) {
-			top: rem(0);
-			right: rem(0);
+			right: 5%;
 		}
 	}
-	.callback-form .callback-form__grass {
+	.callback-form__grass {
 		position: absolute;
 		z-index: -1;
 		@extend %bg-con;
@@ -697,5 +710,8 @@ body::after {
 			width: rem(450);
 			height: rem(450);
 		}
+	}
+	.callback-form__cta {
+		width: 100%;
 	}
 }

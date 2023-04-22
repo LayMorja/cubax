@@ -1,7 +1,7 @@
 // Подключение функционала "Чертогов Фрилансера"
 import { isMobile } from './functions.js';
 // Подключение списка активных модулей
-// import { flsModules } from "./modules.js";
+import { flsModules } from './modules.js';
 
 //* Jquery ====================================================================================================
 
@@ -38,14 +38,20 @@ $().fancybox({
 
 // Inner pages
 $('.projects__slider').slick({
-	slidesToShow: 2.8,
+	slidesToShow: 4,
 	slidesToScroll: 1,
 	prevArrow: '.projects__slider-prev',
 	nextArrow: '.projects__slider-next',
 	loop: true,
 	responsive: [
 		{
-			breakpoint: 1366,
+			breakpoint: 1600,
+			settings: {
+				slidesToShow: 3,
+			},
+		},
+		{
+			breakpoint: 1236,
 			settings: {
 				slidesToShow: 2,
 			},
@@ -54,6 +60,7 @@ $('.projects__slider').slick({
 			breakpoint: 992,
 			settings: {
 				slidesToShow: 1,
+				centerMode: true,
 				variableWidth: true,
 			},
 		},
@@ -74,30 +81,34 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //* Vanilla JS ====================================================================================================
-
+let sections = [];
+window.addEventListener('load', () => {
+	sections = Array.from(document.querySelectorAll('section._dark')).map(item => [
+		item.offsetTop,
+		item.offsetTop + item.offsetHeight,
+	]);
+});
 // Header color on scroll
 const header = document.querySelector('header.header');
 const headerHeight =
 	(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) * 16) /
 	2;
-let sections = Array.from(document.querySelectorAll('section._dark')).map(item => [
-	item.offsetTop,
-	item.offsetTop + item.offsetHeight,
-]);
-
 const changeHeader = function () {
 	let scrolled = window.scrollY + headerHeight;
+	let flag = true;
 	for (let i = 0; i < sections.length; i++) {
 		if (scrolled >= sections[i][0] && scrolled <= sections[i][1]) {
-			header.classList.contains('header--light') || header.classList.add('header--light');
+			header.classList.contains('header--light') ? null : header.classList.add('header--light');
+			flag = false;
 			break;
-		} else if (
-			(i == sections.length - 1 && scrolled <= sections[i][0]) ||
-			scrolled >= sections[i][1]
-		) {
-			header.classList.contains('header--light') && header.classList.remove('header--light');
+		}
+		if (i == sections.length - 1 && (scrolled <= sections[i][0] || scrolled >= sections[i][1])) {
+			header.classList.contains('header--light')
+				? header.classList.remove('header--light')
+				: null;
 		}
 	}
+	flag ? header.classList.remove('header--light') : null;
 };
 window.addEventListener('scroll', changeHeader);
 window.addEventListener('resize', () => {
@@ -132,3 +143,15 @@ if (scrollButton) {
 		});
 	});
 }
+
+// Contact Form 7 on Submit
+const forms = document.querySelectorAll('.wpcf7');
+forms.forEach(form => {
+	form.addEventListener(
+		'wpcf7submit',
+		() => {
+			flsModules.popup.open('#thanks');
+		},
+		false
+	);
+});

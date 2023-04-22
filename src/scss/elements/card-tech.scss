@@ -151,6 +151,12 @@
 		&:not(:nth-child(2n)) {
 			margin-right: rem(30);
 		}
+		@media (max-width: $pc) {
+			margin-right: rem(10);
+			&:not(:nth-child(2n)) {
+				margin-right: rem(10);
+			}
+		}
 		@media (max-width: $tablet) {
 			margin-bottom: 0;
 			&:not(:nth-child(2n)) {
