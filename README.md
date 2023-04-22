@@ -8,9 +8,7 @@
 Машенков Тимофей (LayMorja)
 
 ____
-
 Мои контакты:
 ВКонтакте: https://vk.com/laymorja
 Телеграм: https://tlgg.ru/@laymorja
-
 ____
